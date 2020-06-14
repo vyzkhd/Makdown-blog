@@ -1,33 +1,44 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 export default function Header(props) {
   return (
     <header className="header">
-      <nav
-        className="nav"
-        role="navigation"
-        aria-label="main navigation"
-      >
+      <nav className="nav" role="navigation" aria-label="main navigation">
         <Link href="/">
           <h1>{props.siteTitle}</h1>
         </Link>
+
+        <main>
+          <p className="intro">This is a simple blog created by Vyshakh.</p>
+          <p className="footer">
+            Built with Next.js, and deployed on <img src="/vercel.svg" />
+          </p>
+        </main>
       </nav>
+
       <style jsx>
         {`
           h1 {
             margin-bottom: 0;
+            color: black;
+            font-weight: bold;
+          }
+          .footer {
+            margin-top: 450px;
+          }
+          .intro {
+            color: #a9a9a9;
+          }
+          img {
+            height: 15px;
           }
           h1:hover {
             cursor: pointer;
           }
-          nav {
-            padding: 1.5rem 1.25rem;
-            border-bottom: 1px solid #ebebeb;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            align-items: center;
+          .nav {
+            background: #fffaf0;
           }
+
           @media (min-width: 768px) {
             .header {
               height: 100vh;
@@ -40,14 +51,13 @@ export default function Header(props) {
               width: 30vw;
               height: 100%;
               border-right: 1px solid #ebebeb;
-              border-bottom: none;
-              flex-direction: column;
+              border-bottom: 1px solid green;
+
               align-items: flex-start;
             }
           }
         `}
       </style>
     </header>
-  );
+  )
 }
-
